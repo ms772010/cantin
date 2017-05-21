@@ -148,3 +148,26 @@ int iodat::returnrows()
 	sqlite3_finalize(smt);
 	return rows;
 }
+void iodat::selectdata()
+{
+	string a;
+	string date;
+	
+	cout << "请输入要查询的日期" << endl;
+	cin >> date;
+	 a= "select  *  from  yudin  where  DATE LIKE '%"
+		+ date +
+		"%';";
+	 sql = const_cast<char*>(a.c_str());
+	 sqlite3_exec(db, sql, callback2, 0, &zErrMsg);
+
+}
+int callback2(void *NotUsed, int argc, char **argv, char **azColName) {
+
+	int i ;
+	for (i = 0; i < argc; i++) {
+		cout << U2G(argv[i]);
+	}
+	cout << endl;
+	return 0;
+}

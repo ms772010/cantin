@@ -29,6 +29,7 @@ int main()
 		cout << "2.显示所有预约" << endl;
 		cout << "3.离开" << endl;
 		cout << "4.删除预约" << endl;
+		cout << "5.查询" << endl;
 		
 		cin >> i;
 		switch (i)
@@ -40,6 +41,10 @@ int main()
 		case 3:break;
 		case 4: {a.deletedata();
 			
+			break;
+		}
+		case 5: {a.selectdata();
+
 			break;
 		}
 		
